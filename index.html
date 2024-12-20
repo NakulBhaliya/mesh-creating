@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Point Mesh Creator</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+      #info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #333;
+        background: rgba(255,255,255,0.9);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        pointer-events: none;
+      }
+      #controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255,255,255,0.9);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+      button {
+        margin: 5px;
+        padding: 8px 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background: #4CAF50;
+        color: white;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+      button:hover {
+        background: #45a049;
+      }
+      button:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+      }
+      .button-group {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+      #undo, #redo {
+        background: #2196F3;
+      }
+      #undo:hover, #redo:hover {
+        background: #1976D2;
+      }
+      #clearPoints {
+        background: #f44336;
+      }
+      #clearPoints:hover {
+        background: #d32f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">
+      1. Click to add points<br>
+      2. Connect points to create a shape<br>
+      3. Click the first point to close and create mesh
+    </div>
+    <div id="controls" class="no-point-creation">
+      <div class="button-group">
+        <button id="undo" title="Undo (Ctrl+Z)">↩ Undo</button>
+        <button id="redo" title="Redo (Ctrl+Y)">↪ Redo</button>
+      </div>
+      <div class="button-group">
+        <button id="clearPoints">Clear All</button>
+        <button id="exportGLB">Export GLB</button>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
